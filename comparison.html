@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
 
   <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="sammenligning.css" type="text/css">
@@ -39,12 +41,13 @@
       <br>
       <br>
       <button onclick="search()" id = "b1">Sammenlign!</button>
+      <div id="resultat"></div>
     </div>
     
     <br>
-    <div id="resultat"></div>
     <br>
 
+    <canvas id="myChart" width="200" height="200"></canvas>
     <footer class= "footer">
       <div> Dette er en oppgavebesvarelse i INFO134 vår2020. </div>
     </footer>
@@ -64,6 +67,10 @@
     const kommune1 = window.data.elementer[input1];
     const kommune2 = window.data.elementer[input2];
 
+    const oldCanvas = document.querySelector("canvas");
+    if(oldCanvas)
+      oldCanvas.remove();
+
     console.log(kommune1,kommune2);
     const resultater = document.querySelector("#resultat");
     if (!kommune1 || !kommune2){
@@ -76,9 +83,40 @@
       return;
     }
 
+    const canvas = document.createElement("canvas");
+    new Chart(canvas.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['Richard', 'Sunniva'],
+        datasets: [{
+          label: 'What?!',
+          data: [12, 19],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
 
-
+    resultater.appendChild(canvas)
 
   }
 </script>
+
+  <script></script>
 </html>
