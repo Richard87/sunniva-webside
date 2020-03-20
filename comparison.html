@@ -38,10 +38,11 @@
       <input type="text" id = "input2" onfocus="this.value=''" value="Kommune:">
       <br>
       <br>
-      <button onclick="search(event)" id = "b1">Sammenlign!</button>
+      <button onclick="search()" id = "b1">Sammenlign!</button>
     </div>
     
     <br>
+    <div id="resultat"></div>
     <br>
 
     <footer class= "footer">
@@ -56,11 +57,27 @@
       console.log("Dataene er lastet ned...");
   }
 
-  function search(event) {
+  function search() {
     const input1 = document.querySelector("#input1").value;
     const input2 = document.querySelector("#input2").value;
 
-    console.log(input1,input2);
+    const kommune1 = window.data.elementer[input1];
+    const kommune2 = window.data.elementer[input2];
+
+    console.log(kommune1,kommune2);
+    const resultater = document.querySelector("#resultat");
+    if (!kommune1 || !kommune2){
+
+      if (!kommune1)
+        resultater.textContent = input1 + " er ikke en gyldig kommune! ";
+      if (!kommune2)
+        resultater.textContent += input1 + " er ikke en gyldig kommune! ";
+
+      return;
+    }
+
+
+
 
   }
 </script>
