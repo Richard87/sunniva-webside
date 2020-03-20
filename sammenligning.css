@@ -1,0 +1,46 @@
+#kommunesammenligning
+{
+    width: 70%;
+    margin: auto;
+    border-style: solid;
+    border-color: #4CAF50;
+    border-radius: 25px;
+    /*background-color: #4CAF50;*/
+    /*opacity: 0.3;*/
+}
+
+
+#input1
+{
+    color: grey;
+    border-radius: 5px;
+}
+
+#input2
+{
+    color: grey;
+    border-radius: 5px;
+}
+
+#en
+{
+    text-align: center;
+    color: #333;
+}
+
+#to
+{
+    text-align: center;
+    color: #333;
+}
+
+#tre
+{
+    text-align: center;
+    color: #333;
+}
+
+#b1
+{
+    margin: auto;
+}

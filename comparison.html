@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="sammenligning.css" type="text/css">
+    <title>Assignment</title>
+  </head>
+
+  <body onload="load()">
+
+    <!-- ny meny 
+    <ul id = "menu">
+        <li class ="top"><a class="top" href="introduction.html">Introduksjon</a></li>
+        <li class ="top"><a class="top" href="overview.html">Oversikt</a></li>
+        <li class ="top"><a class="top" href="details.html">Detaljer</a></li>
+        <li class ="top"><a class="active" class ="top" href="comparison.html">Sammenligning</a></li>
+   </ul><br/><br/>-->
+
+
+    <div class="nav">
+      <a href="introduction.html">Introduksjon</a>
+      <a href="overview.html">Oversikt</a>
+      <a href="details.html">Detaljer</a>
+      <a class = "active" href="comparison.html">Sammenligning</a>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="header" id = "kommunesammenligning">
+      <h1 id="en">Kommunesammenligning!</h1>
+      <p id = "to">Her kan du sammenligne to kommuner, og sjekke hvilken av de som har best statistikk for utdanning!</p> 
+      <p id = "tre">skriv inn et kommunenavn for å komme i gang.</p>
+      <input type="text" id = "input1" onfocus="this.value=''" value="Kommune:">
+      <input type="text" id = "input2" onfocus="this.value=''" value="Kommune:">
+      <br>
+      <br>
+      <button onclick="search(event)" id = "b1">Sammenlign!</button>
+    </div>
+    
+    <br>
+    <br>
+
+    <footer class= "footer">
+      <div> Dette er en oppgavebesvarelse i INFO134 vår2020. </div>
+    </footer>
+
+  </body>
+<script>
+  async function load() {
+      const response = await fetch("datasett.json");
+      window.data = await response.json();
+      console.log("Dataene er lastet ned...");
+  }
+
+  function search(event) {
+    const input1 = document.querySelector("#input1").value;
+    const input2 = document.querySelector("#input2").value;
+
+    console.log(input1,input2);
+
+  }
+</script>
+</html>
